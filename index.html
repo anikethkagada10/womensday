@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Women's Day Wish</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f4f4f4;
+            margin: 0;
+            overflow: hidden;
+        }
+        .container {
+            text-align: center;
+            width: 100%;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+        .hidden {
+            display: none;
+        }
+        .page {
+            display: none;
+        }
+        .active {
+            display: block;
+            animation: fadeIn 2s ease-out;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        .button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #ff66b2;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: transform 0.3s ease, background-color 0.3s ease;
+        }
+        .button:hover {
+            transform: scale(1.1);
+            background-color: #ff3399;
+        }
+        .card {
+            display: inline-block;
+            width: 200px;
+            height: 700px;
+            margin: 20px;
+            background-color: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+            overflow: hidden;
+            animation: cardSlide 1s ease;
+        }
+        @keyframes cardSlide {
+            from { transform: translateY(100px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+        .card img {
+            width: 100%;
+            height: 60%;
+            object-fit: cover;
+        }
+        .card h3 {
+            margin: 10px 0;
+        }
+        .card p {
+            padding: 0 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div id="page1" class="page active">
+            <h1>Happy Women's Day</h1>
+            <p>Welcome to a special celebration for all the wonderful women in our lives!</p>
+            <button class="button" onclick="showPage(2)">Next</button>
+        </div>
+        <div id="page2" class="page">
+            <div class="card">
+                <img src="images/mom.jpg" alt="mom">
+                <h3>Happy Women's Day, Mom!</h3>
+                <p>Thank you for everything you do. You are truly amazing!</p>
+            </div>
+            <button class="button" onclick="showPage(3)">Next</button>
+        </div>
+        <div id="page3" class="page">
+            <div class="card">
+                <img src="images/sister.jpg" alt="sister">
+                <h3>Happy Women's Day, Sis!</h3>
+                <p>You're an incredible sister and friend. Keep shining!</p>
+            </div>
+            <button class="button" onclick="showPage(1)">Back to Start</button>
+        </div>
+    </div>
+    <script>
+        function showPage(pageNumber) {
+            document.querySelectorAll('.page').forEach(page => page.classList.remove('active'));
+            document.getElementById(`page${pageNumber}`).classList.add('active');
+        }
+    </script>
+</body>
+</html>
